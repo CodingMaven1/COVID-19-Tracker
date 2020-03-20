@@ -1,0 +1,84 @@
+.Main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-color: #0f0f1d;
+}
+
+.Main--LeftDiv{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    color: #E8EEF2;
+}
+
+.Main--LeftDivTables{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    overflow-y: hidden;
+}
+
+.Main--LeftDivSearch{
+    height: 8%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Main--LeftDivSearchTitle{
+    font-size: 2rem;
+    font-weight: 500;
+    padding-left: 3vw;
+}
+
+.Main--LeftDivSearchInput{
+    height: 55%;
+    width: 30%;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid #E8EEF2;
+    padding-left: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #E8EEF2;
+}
+
+.Main--LeftDivSearchInput::placeholder{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #E8EEF2;
+}
+
+.Main--LeftDivSearchInput:placeholder-shown{
+    padding-left: 1rem;
+}
+
+.Main--RightDiv{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Main--RightDivChart{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Main--RightDivChartTitle{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #E8EEF2;
+}
