@@ -1,3 +1,5 @@
+## COVID-19 Tracker
+
 Live tracking of COVID-19 (Corona Virus)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
