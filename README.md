@@ -1,4 +1,4 @@
-COVID-19 Tracker
+## COVID-19 Tracker
 
 Live tracking of COVID-19 (Corona Virus)
 
