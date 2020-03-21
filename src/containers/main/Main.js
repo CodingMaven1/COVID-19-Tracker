@@ -89,7 +89,7 @@ class Main extends Component {
                 <div className="Main--RightDiv">
                     <div className="Main--RightDivChart">
                         <h1 className="Main--RightDivChartTitle">World Map with Hotspots</h1>
-                        <Chart
+                        {/* <Chart
                             width={'700px'}
                             height={'500px'}
                             chartType="GeoChart"
@@ -100,7 +100,7 @@ class Main extends Component {
                             }}
                             mapsApiKey="AIzaSyB1PdGk5hG5ugltxvtfF96VTIYL0MVmQaw"
                             rootProps={{ 'data-testid': '1' }}
-                            />
+                            /> */}
                     </div>
                     <div className="Main--RightDivNews">
                         <h1 className="Main--RightDivChartTitle">News on COVID-19</h1>
