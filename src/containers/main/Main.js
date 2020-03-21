@@ -3,6 +3,7 @@ import Chart from "react-google-charts";
 
 import Card from '../../components/card/Card';
 import RowComponent from '../../components/rowComponent/RowComponent';
+import NewsCard from '../../components/newsCard/NewsCard';
 import './Main.css';
 
 class Main extends Component {
@@ -11,17 +12,19 @@ class Main extends Component {
         worldData : [],
         countryData : [],
         datachart : [["Country","Cases","Deaths"]],
+        news : [],
         inputvalue: ''
     }
 
     componentDidMount(){
-        Promise.all([fetch('https://coronavirus-19-api.herokuapp.com/all'), fetch('https://coronavirus-19-api.herokuapp.com/countries') ])
-        .then(([res1,res2]) => {
-            return Promise.all([res1.json(), res2.json()])
+        Promise.all([fetch('https://coronavirus-19-api.herokuapp.com/all'), fetch('https://coronavirus-19-api.herokuapp.com/countries'), fetch('http://newsapi.org/v2/everything?q=covid-19 deaths&from=2020-03-15&sortBy=popularity&language=en&apiKey=1b414d50cff34c698a6a1196df283134&pageSize=4') ])
+        .then(([res1,res2,res3]) => {
+            return Promise.all([res1.json(), res2.json(), res3.json()])
         })
-        .then(([res1,res2]) => {
+        .then(([res1,res2,res3]) => {
             let stats = []
             let datachart = this.state.datachart
+            let news = []
             for(let i in res1){
                 stats.push({
                     id : i,
@@ -33,7 +36,16 @@ class Main extends Component {
                     res2[j].country, res2[j].cases, res2[j].deaths
                 ])
             }
-            this.setState({ worldData : stats, countryData : res2, datachart : datachart})
+            for(let k in res3.articles){
+                news.push({
+                    img : res3.articles[k].urlToImage,
+                    url : res3.articles[k].url,
+                    author : res3.articles[k].author,
+                    title : res3.articles[k].title,
+                    description : res3.articles[k].description
+                })
+            }
+            this.setState({ worldData : stats, countryData : res2, datachart : datachart, news : news})
         })
     }
 
@@ -90,8 +102,8 @@ class Main extends Component {
                     <div className="Main--RightDivChart">
                         <h1 className="Main--RightDivChartTitle">World Map with Hotspots</h1>
                         <Chart
-                            width={'700px'}
-                            height={'500px'}
+                            width={'570px'}
+                            height={'410px'}
                             chartType="GeoChart"
                             data={this.state.datachart}
                             var options={{
@@ -104,6 +116,15 @@ class Main extends Component {
                     </div>
                     <div className="Main--RightDivNews">
                         <h1 className="Main--RightDivChartTitle">News on COVID-19</h1>
+                        <div className="Main--RightDivNewsBox">
+                            {
+                                this.state.news.map((element, index) => {
+                                    return(
+                                        <NewsCard key={index} url={element.url} img={element.img} author={element.author} title={element.title} description={element.description} />
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

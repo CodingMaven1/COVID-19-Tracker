@@ -69,10 +69,27 @@
 }
 
 .Main--RightDivChart{
-    height: 60%;
+    height: 50%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Main--RightDivNews{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Main--RightDivNewsBox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
 }
