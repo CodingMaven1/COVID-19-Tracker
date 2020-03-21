@@ -13,7 +13,7 @@
     height: 50%;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -27,8 +27,8 @@
 }
 
 .NewsCard--HeaderImg{
-    height: auto;
-    width: 50%;
+    height: 100%;
+    width: auto;
     border-top-left-radius: 1rem;
 }
 

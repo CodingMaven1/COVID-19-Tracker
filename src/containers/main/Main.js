@@ -17,7 +17,7 @@ class Main extends Component {
     }
 
     componentDidMount(){
-        Promise.all([fetch('https://coronavirus-19-api.herokuapp.com/all'), fetch('https://coronavirus-19-api.herokuapp.com/countries'), fetch('http://newsapi.org/v2/everything?q=covid-19 deaths&from=2020-03-15&sortBy=popularity&language=en&apiKey=1b414d50cff34c698a6a1196df283134&pageSize=4') ])
+        Promise.all([fetch('https://coronavirus-19-api.herokuapp.com/all'), fetch('https://coronavirus-19-api.herokuapp.com/countries'), fetch('https://newsapi.org/v2/everything?q=covid-19 deaths&from=2020-03-21&sortBy=popularity&language=en&apiKey=1b414d50cff34c698a6a1196df283134&pageSize=40') ])
         .then(([res1,res2,res3]) => {
             return Promise.all([res1.json(), res2.json(), res3.json()])
         })
@@ -56,7 +56,14 @@ class Main extends Component {
     }
 
     render(){
-        console.log(this.state);
+        // console.log(this.state);
+
+        const news = this.state.news;
+        for(var i = news.length-5;i>=0;i--){
+            news.splice(Math.floor(Math.random()*news.length), 1);
+          }
+        const filterednews = news
+        // console.log(filterednews)
 
         const countryData = this.state.countryData;
         const search = this.state.inputvalue;
@@ -118,7 +125,7 @@ class Main extends Component {
                         <h1 className="Main--RightDivChartTitle">News on COVID-19</h1>
                         <div className="Main--RightDivNewsBox">
                             {
-                                this.state.news.map((element, index) => {
+                                filterednews.map((element, index) => {
                                     return(
                                         <NewsCard key={index} url={element.url} img={element.img} author={element.author} title={element.title} description={element.description} />
                                     )
