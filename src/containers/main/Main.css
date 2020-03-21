@@ -99,3 +99,60 @@
     font-weight: 500;
     color: #E8EEF2;
 }
+
+@media(max-width : 576px){
+    .Main{
+        min-height: 280vh;
+        flex-wrap: wrap;
+    }
+
+    .Main--LeftDiv{
+        height: 60%;
+        width: 100%;
+    }
+
+    .Main--LeftDivSearchTitle {
+        font-size: 1.5rem;
+    }
+
+    .Main--LeftDivSearchInput {
+        height: 45%;
+        width: 60%;
+        transform: translateX(-1rem);
+    }
+
+    .Main--LeftDivTables{
+        flex-wrap: wrap;
+    }
+
+    .Card{
+        width: 70vw;
+        height: 33%;
+    }
+
+    .Card--Heading{
+        height: 13%;
+    }
+
+    .Card--Body{
+        height: 80%;
+    }
+
+    .Main--RightDiv{
+        height: 40%;
+        width: 100%;
+    }
+
+    .Main--RightDivChart {
+        display: none;
+    }
+
+    .Main--RightDivNews {
+        height: 100%;
+    }
+
+    .NewsCard {
+        height: 20vh;
+        width: 80vw;
+    }
+}
